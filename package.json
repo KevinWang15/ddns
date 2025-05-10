@@ -1,0 +1,33 @@
+{
+  "name": "ddns",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/cli/index.js start",
+    "dev": "nodemon src/cli/index.js start",
+    "db:migrate": "node scripts/prisma-migrate.js",
+    "db:generate": "node scripts/prisma-generate.js"
+  },
+  "bin": {
+    "ddns": "src/cli/index.js"
+  },
+  "keywords": [
+    "dns",
+    "ddns",
+    "dynamic-dns",
+    "aliyun"
+  ],
+  "author": "",
+  "license": "MIT",
+  "description": "Dynamic DNS service with support for multiple providers",
+  "dependencies": {
+    "@alicloud/pop-core": "^1.8.0",
+    "@prisma/client": "^6.7.0",
+    "axios": "^1.9.0",
+    "commander": "^13.1.0",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "prisma": "^6.7.0"
+  }
+}

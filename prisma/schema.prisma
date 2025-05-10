@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model DomainToken {
+  id          Int       @id @default(autoincrement())
+  token       String    @unique
+  domain      String    @unique // Full domain name (e.g. machine1.example.com)
+  provider    String    // Provider type identifier ('aliyun', 'cloudflare', etc.)
+  lastIp      String?   // Last updated IP address
+  lastUpdated DateTime? // Last update timestamp
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
